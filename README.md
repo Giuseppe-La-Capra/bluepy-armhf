@@ -13,12 +13,19 @@ Cross-Compiler Setup
 ------------
 
 add a new architecture to dpkg
+
     $ dpkg --add-architecture armhf
+
 update apt
+
     $ sudo apt update
+
 install the cross-compiler
+
     $ sudo apt install crossbuild-essential-armhf
+
 install the needed armhf lib
+
     $ sudo apt install libglib2.0-dev:armhf
 
 Installation
