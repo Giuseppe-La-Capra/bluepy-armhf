@@ -27,7 +27,9 @@ def pre_install():
 
 class my_build_py(build_py):
     def run(self):
-        pre_install()
+        if sys.argv[1] == "build":
+            pre_install()
+            
         build_py.run(self)
 
 setup_cmdclass = {

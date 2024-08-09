@@ -9,7 +9,7 @@ BLUEZ_SRCS += src/shared/io-glib.c src/shared/timeout-glib.c
 IMPORT_SRCS = $(addprefix $(BLUEZ_PATH)/, $(BLUEZ_SRCS))
 LOCAL_SRCS  = bluepy-helper.c
 
-CC ?= gcc
+CC = arm-linux-gnueabihf-gcc
 CFLAGS += -g -Wall # -Werror
 
 CPPFLAGS += -DHAVE_CONFIG_H
@@ -21,8 +21,8 @@ endif
 
 CPPFLAGS += -I$(BLUEZ_PATH)/attrib -I$(BLUEZ_PATH) -I$(BLUEZ_PATH)/lib -I$(BLUEZ_PATH)/src -I$(BLUEZ_PATH)/gdbus -I$(BLUEZ_PATH)/btio -I$(BLUEZ_PATH)/sys
 
-CPPFLAGS += $(shell pkg-config glib-2.0 --cflags)
-LDLIBS += $(shell pkg-config glib-2.0 --libs)
+CPPFLAGS += -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include
+LDLIBS += -lglib-2.0
 
 all: bluepy-helper
 
